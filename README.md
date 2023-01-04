@@ -7,7 +7,7 @@ Go to https://github.com/bitly/sprinterns2023
 Click the “<> Code” Dropdown button and toggle to SSH
 Copy the url: git@github.com:bitly/sprinterns2023.git 
 
-Open a terminal window on your computer. If you have a Mac, this should be pretty straightforward (although we may need to install Git if you haven’t used it before). If you’re on a windows computer, we may need to install a git specific terminal - we’ll figure it out together!
+Open a Terminal window on your computer. If you have a Mac, this should be pretty straightforward (although we may need to install Git if you haven’t used it before). If you’re on a windows computer, we may need to install a git specific terminal - we’ll figure it out together!
 
 `$ cd` (to get into your home directory 
 
