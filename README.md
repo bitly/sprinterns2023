@@ -20,6 +20,9 @@ Once you’ve successfully cloned the repository, if you do an `ls -la` command 
 Now we’ll deal with installing dependencies
 `$ go mod tidy`
 
+If you do not already have homebrew installed, you can do so by running the following command in your terminal:
+`/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
+
 We also need to install our database - MySQL
 `$ brew install mysql`
 
