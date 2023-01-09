@@ -1,14 +1,19 @@
 import logo from './logo.svg';
-import './App.css';
+import CreateEvent from './CreateEvent.jsx'; 
+import HomePage from './HomePage.jsx'; 
+import RSVP from './RSVP.jsx'; 
+//import ViewEvent from './ViewEvent.jsx'; 
+//Add About Us page
+//Add a community page
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-       <p>Heloo</p>
-      </header>
-    </div>
+    <> 
+    <CreateEvent /> 
+    <HomePage/>
+    <RSVP/>
+    </>
   );
 }
 
