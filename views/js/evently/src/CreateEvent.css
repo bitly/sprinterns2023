@@ -1,0 +1,19 @@
+fieldset {
+    display:inline
+}
+
+
+
+ul {
+    list-style: none;
+    padding: 0px;
+  }
+  
+  .tableA {
+    float: left;
+  }
+  
+  .tableB{
+    float: right;
+    text-align: right;
+  }
