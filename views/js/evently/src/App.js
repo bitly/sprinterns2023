@@ -37,10 +37,6 @@ function App() {
         </li>
       </ul>
     </nav>
-    <br></br>
-    <br></br>
-    <br></br>
-    <br></br>
     <Routes>
       <Route path="/create-event" element={<CreateEvent />} />
       <Route path="/" element={<HomePage />} />
