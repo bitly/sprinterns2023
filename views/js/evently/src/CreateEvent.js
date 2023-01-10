@@ -1,9 +1,21 @@
-import React from "react";
+import React, {useState} from 'react';
+import './CreateEvent.css';
+// import Header from './header.css';
+import Header from './header.js';
 
 function CreateEvent() {
+  const [file, setFile] = useState();
+  function handleChange (e) {
+    console.log(e.target.files);
+    setFile(URL.createObjectURL(e.target.files[0]));
+  }
+
     return(
-      <div className="wrapper">      
-        <h1>Event.ly</h1> 
+      <div className="wrapper"> 
+        <Header/>
+        <fieldset style={{ backgroundColor: 'rgba(238, 97, 35)' }}>
+          <h1>Event.ly</h1> 
+        </fieldset>
 
         {/* Date form */}
         <form> 
@@ -54,12 +66,25 @@ function CreateEvent() {
             <input contact="contact" />
          </fieldset>
 
-        {/* Button to publish draft */}
-        <button type="publish">Publish</button>
+        {/* Upload an image */}
+        {/* fieldset style creates a gray box */}
+        <fieldset style={{ backgroundColor: 'rgba(217, 217, 217' }}>
+          <h2> Choose an image:</h2>
+          {/* Takes a file as input; onChange passes value to handleChange */}
+          <input type = "file" onChange={handleChange} />
+          <img src = {file} />
+        </fieldset>
 
-        {/* Button to save draft (if have time) */}
-        <button type="publish">Save draft</button>
+        <fieldset>
+          {/* Button to publish draft */}
+          <button type="publish">Publish</button>
+
+          {/* Button to save draft (if have time) */}
+          <button type="save draft">Save draft</button>
+        </fieldset>
+        
         </form>
+        
       </div>
     )
   }
