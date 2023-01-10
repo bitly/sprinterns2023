@@ -75,3 +75,7 @@ button{
     height: 115px;
     border-radius: 8px;
 }
+
+#MainText{
+    padding-top: 125px;
+}

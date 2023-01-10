@@ -6,7 +6,7 @@ const HomePage: React.FC = () => {
     return (
         <div className = "App HomePage">
             <img src={logo} alt="Bitly Logo"></img>
-            <div className = "col-xs-8 col-xs-offset-2 jumbotron text-center">
+            <div className = "col-xs-8 col-xs-offset-2 jumbotron text-center" id="MainText">
                 <h1 class = "Title">Event.ly</h1>
                 <h2 class = "Text">Host your events here!</h2>
                 <button>Get Started!</button>
