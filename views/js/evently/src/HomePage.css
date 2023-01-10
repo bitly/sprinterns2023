@@ -38,3 +38,20 @@ li a{
     text-decoration: none;
     text-align: center;
 }
+
+img{
+    background-color: white;
+    border-radius: 50%;
+    padding: 7px;
+
+    height: 100px;
+    width: 100px;
+
+    position: relative;
+    float: left;
+}
+
+.Title{
+    text-align: left;
+    color: rgb(255, 255, 255, 0.8);
+}
