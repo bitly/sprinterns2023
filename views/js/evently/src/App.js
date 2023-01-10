@@ -1,6 +1,6 @@
 import logo from './logo.svg';
-import CreateEvent from './CreateEvent.jsx'; 
-import HomePage from './HomePage.jsx'; 
+//import CreateEvent from './CreateEvent.jsx'; 
+// import HomePage from './HomePage.jsx'; 
 import RSVP from './RSVP.jsx'; 
 //import ViewEvent from './ViewEvent.jsx'; 
 //Add About Us page
@@ -10,8 +10,8 @@ import RSVP from './RSVP.jsx';
 function App() {
   return (
     <> 
-    <CreateEvent /> 
-    <HomePage/>
+    {/* <CreateEvent /> 
+    <HomePage/> */}
     <RSVP/>
     </>
   );
