@@ -59,3 +59,19 @@ img{
     left: 150px;
     color: rgb(255, 255, 255, 0.8);
 }
+
+.Text{
+    font-size: 80px;
+    color: white;
+}
+
+button{
+    background-color: #2E0096;
+    color: white;
+
+    font-size: 20px;
+
+    width: 400px;
+    height: 115px;
+    border-radius: 8px;
+}
