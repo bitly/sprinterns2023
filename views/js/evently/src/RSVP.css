@@ -1,8 +1,12 @@
-<div class="dropdown">
-  <button class="dropbtn"> </button>
-  <div class="dropdown-content">
-    <a href="#">Yes</a>
-    <a href="#">No</a>
-    <a href="#">Maybe</a>
-  </div>
-</div>
+html, body{
+  /* background of page */
+  background-color: #EE6123;
+  margin: 0;
+  width: auto;
+  height: auto;
+  overflow: auto;
+
+  /* page text */
+  font-size: 30px;
+  font-family: 'Inter';
+}

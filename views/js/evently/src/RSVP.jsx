@@ -1,4 +1,7 @@
 import React from "react";
+import './RSVP.css'
+//import logo from './bitly-logo.png';
+
 
 function RSVP() {
     return(
@@ -32,12 +35,6 @@ function RSVP() {
                 no </option>
             <option>
                 maybe </option>
-            {/* <button class="dropbtn"> </button>
-            <div class="dropdown-content">
-                <a href="#">Yes</a>
-                <a href="#">No</a>
-                <a href="#">Maybe</a>
-            </div> */}
             
         </select>
 
@@ -59,5 +56,6 @@ function RSVP() {
     
     )   
 }
+
 export default RSVP;  
 
