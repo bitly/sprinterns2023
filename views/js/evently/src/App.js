@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import HomePage from './HomePage.jsx'; 
 import CreateEvent from './CreateEvent.jsx'; 
-import RSVP from './RSVP.jsx'; 
+// import RSVP from './RSVP.jsx'; 
 //import ViewEvent from './ViewEvent.jsx'; 
 //Add About Us page
 //Add a community page
@@ -17,11 +17,10 @@ function App() {
     <nav>
       <ul>
         <li>
-          <Link to="/HomePage.jsx">Home</Link>
+          <Link to="/">Home</Link>
         </li>
         <li>
-          <p>Create</p>
-          {/* <Link to="/CreateEvent.jsx">Create</Link> */}
+          <Link to="/create-event">Create</Link>
         </li>
         <li>
           <p>RSVP</p>
