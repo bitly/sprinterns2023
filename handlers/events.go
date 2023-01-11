@@ -1,10 +1,10 @@
 package handlers
 
 import (
-	"net/http"
-
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"main.go/models"
+	"net/http"
 )
 
 // creates a new event
@@ -20,11 +20,35 @@ func CreateEvent(c *gin.Context) {
 	_, err := dbmap.Query(
 		"INSERT INTO event (title, date, time, location, host_name, description, contact_info, public_private, num_of_RSVP, max_attendees) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);",
 		event.EventTitle, event.Date, event.Time, event.Location, event.HostName, event.Description, event.ContactInfo, event.PublicPrivate, event.NumRSVP, event.MaxAttendees)
-
+		
 	if err != nil {
 		c.IndentedJSON(http.StatusInternalServerError, nil) //server error
 		return
 	}
-
 	c.JSON(201, event) //success
+}
+
+func GetEvent(c *gin.Context) {
+	var events []models.GetEvent
+
+	see_row := c.Param("eventID")
+	eventrow, err := dbmap.Query(
+		"SELECT event_id, title, date, time, location, host_name, description, contact_info, public_private, num_of_RSVP, max_attendees FROM event WHERE event_id=?;",
+		see_row)
+
+	fmt.Printf("%+v", eventrow)
+	
+	for eventrow.Next() {
+		var event models.GetEvent
+        // for each row, scan into the event struct
+		err = eventrow.Scan(&event.EventID, &event.EventTitle, &event.Date, &event.Time, &event.Location, &event.HostName, &event.Description, &event.ContactInfo, &event.PublicPrivate, &event.NumRSVP, &event.MaxAttendees)
+		if err != nil {
+		fmt.Println(err)
+		c.IndentedJSON(http.StatusInternalServerError, nil) //server error
+		return
+	}
+        // append the event into events array
+		events = append(events, event)
+	}
+	c.JSON(201, events) //success
 }

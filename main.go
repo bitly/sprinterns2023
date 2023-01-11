@@ -32,6 +32,7 @@ func main() {
 	// This endpoint will be able to create events
 	api.POST("/events", handlers.CreateEvent)
 
+	api.GET("/event/:eventID", handlers.GetEvent)
 	// Start and run the server
 	router.Run(":3000")
 }
