@@ -10,3 +10,13 @@ html, body{
   font-size: 30px;
   font-family: 'Inter';
 }
+button{
+  background-color: #2E0096;
+  color: white;
+
+  font-size: 30px;
+
+  width: 400px;
+  height: 115px;
+  border-radius: 8px;
+}
