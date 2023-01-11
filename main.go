@@ -27,7 +27,10 @@ func main() {
 	}
 
 	// This endpoint will get and list all events
-	api.GET("/events", handlers.EventHandler)
+	// api.GET("/events", handlers.EventHandler)
+
+	// This endpoint will be able to create events
+	api.POST("/events", handlers.CreateEvent)
 
 	// Start and run the server
 	router.Run(":3000")
