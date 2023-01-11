@@ -1,0 +1,81 @@
+html, body{
+    /* background of page */
+    background-color: #EE6123;
+    margin: 0;
+    width: auto;
+    height: auto;
+    overflow: auto;
+
+    /* page text */
+    font-size: 30px;
+    font-family: 'Inter';
+}
+
+ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: white;
+}
+
+li{
+    display: inline-block;
+    text-align: center;
+    padding: 10px;
+
+    background-color: white;
+    text-decoration: none;
+}
+
+li a:hover{
+    background-color: #207DAE;
+    color: white;
+}
+
+li a{
+    color: black;
+    text-decoration: none;
+    text-align: center;
+}
+
+img{
+    background-color: white;
+    border-radius: 50%;
+    padding: 7px;
+
+    height: 100px;
+    width: 100px;
+
+    top: 150px;
+    left: 10px;
+    position: absolute;
+    overflow: hidden;
+}
+
+.Title{
+    position: absolute;
+    top: 135px;
+    left: 150px;
+    color: rgb(255, 255, 255, 0.8);
+}
+
+.Text{
+    font-size: 80px;
+    color: white;
+}
+
+button{
+    background-color: #2E0096;
+    color: white;
+
+    font-size: 30px;
+
+    width: 400px;
+    height: 115px;
+    border-radius: 8px;
+}
+
+#MainText{
+    padding-top: 125px;
+}
