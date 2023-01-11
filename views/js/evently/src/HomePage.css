@@ -19,6 +19,22 @@ ul{
     background-color: white;
 }
 
+.buttons{
+    background-color: #2E0096;
+    color: white;
+
+    font-size: 30px;
+    text-decoration: none;
+
+    width: 400px;
+    height: 115px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 80px;
+    padding-right: 80px;
+    border-radius: 8px;
+}
+
 li{
     display: inline-block;
     text-align: center;
@@ -63,17 +79,6 @@ img{
 .Text{
     font-size: 80px;
     color: white;
-}
-
-button{
-    background-color: #2E0096;
-    color: white;
-
-    font-size: 30px;
-
-    width: 400px;
-    height: 115px;
-    border-radius: 8px;
 }
 
 #MainText{
