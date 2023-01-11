@@ -1,19 +1,29 @@
 fieldset {
-    display:inline
+  display: inline;
 }
 
+.container {
+  display: flex;
+  max-width: 2000px;
+}
+.form-container {
+  padding-left: 50px;
+  padding-top: 20px;
+  padding-right:500px;
+}
 
+.upload-container {
+  padding-top: 200px;
+}
 
-ul {
-    list-style: none;
-    padding: 0px;
-  }
-  
-  .tableA {
-    float: left;
-  }
-  
-  .tableB{
-    float: right;
-    text-align: right;
-  }
+.publish-button {
+  padding: 10px;
+  color: white;
+  background: rgba(79, 0, 218);
+}
+
+.save-button {
+  padding: 10px;
+  color: white;
+  background: rgba(46, 0, 150);
+}

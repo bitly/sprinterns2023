@@ -1,10 +1,12 @@
 .Header {
     width: 100%;
-    padding-bottom: 20px;
-    padding-left: 20px;
-    justify-content: center;
-    align-items: baseline;
+    display: flex;
     background-color: rgba(238, 97, 35);
     color: white;
   }
-  
+
+.logo {
+  padding-top: 15px;
+  padding-left: 20px;
+  padding-right: 15px;
+}
