@@ -14,11 +14,18 @@ function CreateEvent() {
         <div className = "container">
           <div className = "form-container">
             <h3> Enter the details of your event:</h3>
-             {/* Date form */}
+             
             <form> 
+            {/* Event title form */}
             <fieldset> {/* Creates box around the text and input box */}
+              <p>Event title</p>
+              <input title="title" /> {/* Creates a box that takes an input, saves it into title */}
+            </fieldset> <br></br>
+
+            {/* Date form */}
+            <fieldset> 
               <p>Date</p>
-              <input date="date" /> {/* Creates a box that takes an input, saves it into date */}
+              <input date="date" /> 
             </fieldset> <br></br>
 
             {/* Time form */}
@@ -64,24 +71,24 @@ function CreateEvent() {
                 <input contact="contact" />
             </fieldset> <br></br><br></br>
 
-            <div>
-              {/* Button to publish draft */}
-              <button type="publish" className = "publish-button">Publish</button>
-
-              {/* Button to save draft (if have time) */}
-              <button type="save draft" className = "save-button">Save draft</button>
-            </div>
             </form>
           </div>
           <div className='upload-container'>
             {/* Upload an image */}
             {/* fieldset style creates a gray box */}
-                <fieldset style={{ backgroundColor: 'rgba(217, 217, 217)', padding: '200px'}}>
-                  <h2> Choose an image:</h2>
-                  {/* Takes a file as input; onChange passes value to handleChange */}
-                  <input type = "file" onChange={handleChange} />
-                  <img src = {file} />
-                </fieldset>
+            <fieldset style={{ backgroundColor: 'rgba(217, 217, 217)', padding: '200px'}}>
+              <h2> Choose an image:</h2>
+              {/* Takes a file as input; onChange passes value to handleChange */}
+              <input type = "file" onChange={handleChange} />
+              <img src = {file} />
+            </fieldset><br></br><br></br>
+              <div>
+                {/* Button to publish draft */}
+                <button type="publish" className = "publish-button">Publish</button>
+
+                {/* Button to save draft (if have time) */}
+                <button type="save draft" className = "save-button">Save draft</button>
+              </div>
           </div>
         </div>
       </div>
