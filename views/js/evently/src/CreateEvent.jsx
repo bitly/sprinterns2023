@@ -13,62 +13,62 @@ function CreateEvent() {
         <Header/>
         <div className = "container">
           <div className = "form-container">
-            <h3> Enter the details of your event:</h3>
+            <h2> Enter the details of your event:</h2>
              
             <form> 
             {/* Event title form */}
-            <fieldset> {/* Creates box around the text and input box */}
-              <p>Event title</p>
-              <input title="title" /> {/* Creates a box that takes an input, saves it into title */}
+            <fieldset className = "input-box-fieldset"> {/* Creates box around the text and input box */}
+              <h4>Event title</h4>
+              <input title="title" className = "input-boxes" /> {/* Creates a box that takes an input, saves it into title */}
             </fieldset> <br></br>
 
             {/* Date form */}
-            <fieldset> 
-              <p>Date</p>
-              <input date="date" /> 
+            <fieldset className = "input-box-fieldset"> 
+              <h4>Date</h4>
+              <input date="date" className = "input-boxes"/> 
             </fieldset> <br></br>
 
             {/* Time form */}
-            <fieldset>
-                <p>Time</p>
-                <input time="time" />
+            <fieldset className = "input-box-fieldset">
+                <h4>Time</h4>
+                <input time="time" className = "input-boxes"/>
             </fieldset> <br></br>
 
             {/* Location form */}
-            <fieldset>
-                <p>Location</p>
-                <input location="location" />
+            <fieldset className = "input-box-fieldset">
+                <h4>Location</h4>
+                <input location="location" className = "input-boxes"/>
             </fieldset> <br></br>
 
             {/* Description form */}
-            <fieldset>
-                <p>Description</p>
-                <input description="description" />
+            <fieldset className = "input-box-fieldset">
+                <h4>Description</h4>
+                <input description="description" className = "input-boxes"/>
             </fieldset> <br></br>
 
 
             {/* # of attendees form */}
-            <fieldset>
-                <p># of attendees</p>
-                <input numAttendees="numAttendees" />
+            <fieldset className = "input-box-fieldset">
+                <h4>Max number of attendees</h4>
+                <input numAttendees="numAttendees" className = "input-boxes"/>
             </fieldset> <br></br>
 
             {/* public/private form */}
-            <fieldset>
-                <p>Public/Private</p>
-                <input isPrivate ="isPrivate" />
+            <fieldset className = "pub-priv-box-fieldset">
+                <h4>Public/Private</h4>
+                <select><option>Public</option><option>Private</option></select>
             </fieldset> <br></br>
 
             {/* Host name form */}
-            <fieldset>
-                <p>Host name</p>
-                <input hostName="hostName" />
+            <fieldset className = "input-box-fieldset">
+                <h4>Host name</h4>
+                <input hostName="hostName" className = "input-boxes"/>
             </fieldset> <br></br>
 
             {/* Contact info form */}
-            <fieldset>
-                <p>Contact info</p>
-                <input contact="contact" />
+            <fieldset className = "input-box-fieldset">
+                <h4>Contact info</h4>
+                <input contact="contact" className = "input-boxes"/>
             </fieldset> <br></br><br></br>
 
             </form>

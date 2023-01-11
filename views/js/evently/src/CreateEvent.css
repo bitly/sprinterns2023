@@ -1,5 +1,22 @@
 fieldset {
   display: inline;
+  
+}
+
+.input-box-fieldset {
+  padding-left: 50px;
+  padding-right: 50px;
+  padding-bottom: 20px;
+}
+
+.input-boxes {
+  width: 300px;
+}
+
+.pub-priv-box-fieldset {
+  padding-left: 151px;
+  padding-right: 151px;
+  padding-bottom: 30px;
 }
 
 .container {
@@ -9,7 +26,7 @@ fieldset {
 .form-container {
   padding-left: 50px;
   padding-top: 20px;
-  padding-right:500px;
+  padding-right:450px;
 }
 
 .upload-container {
