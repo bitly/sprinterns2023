@@ -1,7 +1,6 @@
 package handlers
 
 import (
-	"fmt"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -32,19 +31,16 @@ func CreateEvent(c *gin.Context) {
 func GetEvent(c *gin.Context) {
 	var events []models.GetEvent
 
-	see_row := c.Param("eventID")
+	seeRow := c.Param("eventID")
 	eventrow, err := dbmap.Query(
 		"SELECT event_id, title, date, time, location, host_name, description, contact_info, public_private, num_of_RSVP, max_attendees FROM event WHERE event_id=?;",
-		see_row)
-
-	fmt.Printf("%+v", eventrow)
+		seeRow)
 
 	for eventrow.Next() {
 		var event models.GetEvent
 		// for each row, scan into the event struct
 		err = eventrow.Scan(&event.EventID, &event.EventTitle, &event.Date, &event.Time, &event.Location, &event.HostName, &event.Description, &event.ContactInfo, &event.PublicPrivate, &event.NumRSVP, &event.MaxAttendees)
 		if err != nil {
-			fmt.Println(err)
 			c.IndentedJSON(http.StatusInternalServerError, nil) //server error
 			return
 		}
@@ -69,15 +65,12 @@ func UpdateEvent(c *gin.Context) {
 		// for each row, scan into the event struct
 		err = eventInfo.Scan(&event.EventID, &event.EventTitle, &event.Date, &event.Time, &event.Location, &event.HostName, &event.Description, &event.ContactInfo, &event.PublicPrivate, &event.NumRSVP, &event.MaxAttendees)
 		if err != nil {
-			fmt.Println(err)
 			c.IndentedJSON(http.StatusInternalServerError, nil) //server error
 			return
 		}
 		// append the event into events array
 		savedEvent = append(savedEvent, event)
 	}
-
-	fmt.Printf("%+v", savedEvent)
 
 	// Call BindJSON to bind the received JSON to event +add error handling later
 	if err := c.BindJSON(&updateEvent); err != nil {
@@ -130,10 +123,9 @@ func UpdateEvent(c *gin.Context) {
 		updateEvent.EventTitle, updateEvent.Date, updateEvent.Time, updateEvent.Location, updateEvent.HostName, updateEvent.Description, updateEvent.ContactInfo, updateEvent.PublicPrivate, updateEvent.NumRSVP, updateEvent.MaxAttendees, id)
 
 	if err != nil {
-		fmt.Println(err)
 		c.IndentedJSON(http.StatusInternalServerError, nil) //server error
 		return
 	}
 
-	c.JSON(201, updateEvent) //success
+	c.JSON(200, updateEvent) //success
 }
