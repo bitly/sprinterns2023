@@ -1,61 +1,52 @@
 import React from "react";
+import './App.css'
 import './RSVP.css'
-//import logo from './bitly-logo.png';
+import logo from './bitly-logo.png';
 
 
 function RSVP() {
     return(
-<form>
-    <label>
-    Event.ly <br></br>
-    RSVP <br></br> <br></br>
-    </label>
+    <div>
+        <img src={logo} alt="Bitly Logo"></img>
+        <h1 class = "Title">Event.ly</h1>
+        <h2 class = "rsvp">RSVP</h2>
+        <form class = "form-inline">
+            <label>Name:</label>
+            <input type="text" className="Name:" 
+                required
+            />
+
+            <label>Email:</label>
+            <input type="text" className="Email:"
+                required
+            />
+
+            <label>Are you coming?</label>
+                <select className="dropdown">
+                    
+                    <option>
+                        yes </option>
+                    <option>
+                        no </option>
+                    <option>
+                        maybe </option>
+                </select>
+             
+            <label>Write down anything you'd like to bring?</label>
+            <input type="text" className="Bringing anything?" />
+          
+        
+
+            <button>Submit</button>
+          
 
 
-    <label>
-        Name:
-        <input type="text" name="Name:" /> <br></br> <br></br>
+        </form>
+    </div>
 
-    </label>
-
-
-    <label>
-        Email:
-        <input type="text" name="Email:" /> <br></br> <br></br>
-
-    </label>
-
-
-    <label> 
-        Will you be attending?
-        <select class="dropdown">
-            <option>
-                yes </option>
-            <option>
-                no </option>
-            <option>
-                maybe </option>
-            
-        </select>
-
-    </label>
-
-    <br></br><br></br>
-    <label>
-        Will you bring something to the event?
-        <input type="text" name="Bringing anything?" /> <br></br> <br></br>
-
-    </label>
-
-
-
- 
-  <button type="submit">Submit RSVP</button>
-</form>
-
-    
-    )   
+    );
 }
 
-export default RSVP;  
+
+export default RSVP;
 
