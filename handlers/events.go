@@ -52,3 +52,25 @@ func GetEvent(c *gin.Context) {
 	}
 	c.JSON(201, events) //success
 }
+
+func CreateRSVP(c *gin.Context) {
+    var rsvp models.CreateRSVP
+
+    // Call BindJSON to bind the received JSON to event +add error handling later
+    if err := c.BindJSON(&rsvp); err != nil {
+		fmt.Println(err)
+        c.IndentedJSON(http.StatusBadRequest, nil) //bad data
+        return
+    }
+	fmt.Println(rsvp)
+    _, err := dbmap.Query(
+        "INSERT INTO rsvp (event_id, name, rsvp) VALUES (?, ?, ?);",
+        rsvp.EventID, rsvp.ResponderName, rsvp.RSVP)
+
+    if err != nil {
+		fmt.Println(err)
+        c.IndentedJSON(http.StatusInternalServerError, nil) //server error
+        return
+    }
+    c.JSON(201, rsvp) //success
+}
