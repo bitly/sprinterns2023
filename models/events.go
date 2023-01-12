@@ -27,3 +27,8 @@ type GetEvent struct {
 	PublicPrivate string `json:"public_private" `
 	MaxAttendees  int    `json:"max_attendees" `
 }
+
+type CreateRSVP struct {
+    ResponderName string `json:"name" binding:"required"`
+    RSVP          string `json:"rsvp" binding:"required"`
+}
