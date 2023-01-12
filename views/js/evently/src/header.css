@@ -1,12 +1,21 @@
 .Header {
     width: 100%;
-    display: flex;
+    display: inline-block;
     background-color: rgba(238, 97, 35);
-    color: white;
+    color: rgba(255, 255, 255, 80);
+    text-align: center;
   }
 
-.logo {
-  padding-top: 15px;
-  padding-left: 20px;
-  padding-right: 15px;
+img {
+    background-color: white;
+    border-radius: 50%;
+    padding: 7px;
+
+    height: 100px;
+    width: 100px;
+
+    top: 135px;
+    left: 675px;
+    position: absolute;
+    overflow: hidden;
 }

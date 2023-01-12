@@ -11,8 +11,8 @@ import logo from './bitly-logo.png';
 
 const HomePage: React.FC = () => {
     return (
-        <div className = "App HomePage">
-            <img src={logo} alt="Bitly Logo"></img>
+        <div class = "HomePage">
+            <img src={logo} alt="Bitly Logo" id="HomeLogo"></img>
             <div className = "col-xs-8 col-xs-offset-2 jumbotron text-center" id="MainText">
                 <h1 class = "Title">Event.ly</h1>
                 <h2 class = "Text">Host your events here!</h2>

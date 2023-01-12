@@ -1,12 +1,12 @@
 import React from 'react';
-import logo from './bitly-logo-white.png';
+import logo from './bitly-logo.png';
 import './header.css';
 
 function Header() {
   return (
     <div className="Header">
       <div className="logo">
-        <img width="50" height="50" src = {logo}></img>
+        <img src={logo} alt="Bitly Logo"></img>
       </div>
       <h1>Evently</h1>
     </div>
