@@ -29,6 +29,7 @@ type GetEvent struct {
 }
 
 type CreateRSVP struct {
+	EventID		  int	 `json:"event_id" binding:"required"`
     ResponderName string `json:"name" binding:"required"`
     RSVP          string `json:"rsvp" binding:"required"`
 }
