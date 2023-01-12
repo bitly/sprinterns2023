@@ -1,16 +1,3 @@
-.container {
-  /* background of page */
-  background-color: white;
-  margin: 0;
-  width: auto;
-  height: auto;
-  overflow: auto;
-
-  /* page text */
-  font-size: 30px;
-  font-family: 'Inter';
-}
-
 fieldset {
   display: inline;
   
@@ -33,6 +20,10 @@ fieldset {
 }
 
 .container {
+  background-color: white;
+  font-size: 30px;
+  font-family: 'Inter';
+
   display: flex;
   max-width: 2000px;
 }
