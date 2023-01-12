@@ -38,6 +38,7 @@ func main() {
 
 	api.PATCH("/rsvp/:rsvpID", handlers.UpdateResponse)
 
+	api.GET("/RSVP/:responseID", handlers.GetRSVP)
 	// Start and run the server
 	router.Run(":3000")
 }
