@@ -74,3 +74,28 @@ func CreateRSVP(c *gin.Context) {
     }
     c.JSON(201, rsvp) //success
 }
+
+func GetRSVP(c *gin.Context) {
+	var rsvp1 []models.GetRSVP
+
+	see_row := c.Param("responseID")
+	RSVProw, err := dbmap.Query(
+		"SELECT response_id, event_id, name, rsvp, comment_id FROM RSVP WHERE response_id=?;",
+		see_row)
+
+	fmt.Printf("%+v", RSVProw)
+
+for RSVProw.Next() {
+	var rsvp models.GetRSVP
+	// for each row, scan into the event struct
+	err = RSVProw.Scan(&rsvp.ResponseID, &rsvp.EventID, &rsvp.Name, &rsvp.RSVP, &rsvp.CommentID)
+	if err != nil {
+	fmt.Println(err)
+	c.IndentedJSON(http.StatusInternalServerError, nil) //server error
+	return
+}
+	// append the event into events array
+	rsvp1 = append(rsvp1, rsvp)
+}
+	c.JSON(201, rsvp1) //success
+}
