@@ -2,9 +2,10 @@ package handlers
 
 import (
 	"fmt"
+	"net/http"
+
 	"github.com/gin-gonic/gin"
 	"main.go/models"
-	"net/http"
 )
 
 // creates a new event
@@ -54,25 +55,25 @@ func GetEvent(c *gin.Context) {
 }
 
 func CreateRSVP(c *gin.Context) {
-    var rsvp models.CreateRSVP
+	var rsvp models.CreateRSVP
 
-    // Call BindJSON to bind the received JSON to event +add error handling later
-    if err := c.BindJSON(&rsvp); err != nil {
+	// Call BindJSON to bind the received JSON to event +add error handling later
+	if err := c.BindJSON(&rsvp); err != nil {
 		fmt.Println(err)
-        c.IndentedJSON(http.StatusBadRequest, nil) //bad data
-        return
-    }
+		c.IndentedJSON(http.StatusBadRequest, nil) //bad data
+		return
+	}
 	fmt.Println(rsvp)
-    _, err := dbmap.Query(
-        "INSERT INTO rsvp (event_id, name, rsvp) VALUES (?, ?, ?);",
-        rsvp.EventID, rsvp.ResponderName, rsvp.RSVP)
+	_, err := dbmap.Query(
+		"INSERT INTO rsvp (event_id, name, rsvp) VALUES (?, ?, ?);",
+		rsvp.EventID, rsvp.ResponderName, rsvp.RSVP)
 
-    if err != nil {
+	if err != nil {
 		fmt.Println(err)
-        c.IndentedJSON(http.StatusInternalServerError, nil) //server error
-        return
-    }
-    c.JSON(201, rsvp) //success
+		c.IndentedJSON(http.StatusInternalServerError, nil) //server error
+		return
+	}
+	c.JSON(201, rsvp) //success
 }
 
 func GetRSVP(c *gin.Context) {
@@ -96,4 +97,18 @@ func GetRSVP(c *gin.Context) {
 		rsvpList = append(rsvpList, rsvp)
 	}
 	c.JSON(201, rsvpList) //success
+}
+
+// deletes an event
+func DeleteEvent(c *gin.Context) {
+	event_ID := c.Param("eventID")
+
+	_, err := dbmap.Query("Delete FROM event WHERE event_id=?", event_ID)
+
+	if err != nil {
+		fmt.Println(err)
+		c.IndentedJSON(http.StatusInternalServerError, nil) //server error
+		return
+	}
+	c.JSON(204, nil) //success
 }
