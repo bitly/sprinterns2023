@@ -33,6 +33,10 @@ func main() {
 	api.POST("/events", handlers.CreateEvent)
 
 	api.GET("/event/:eventID", handlers.GetEvent)
+
+	// This endpoint will update info for an event
+	api.PATCH("/event/:eventID", handlers.UpdateEvent)
+
 	// Start and run the server
 	router.Run(":3000")
 }
