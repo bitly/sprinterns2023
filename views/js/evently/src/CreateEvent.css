@@ -20,9 +20,12 @@ fieldset {
 }
 
 .container {
+  background-color: white;
+  font-size: 30px;
+  font-family: 'Inter';
   display: flex;
-  max-width: 2000px;
 }
+
 .form-container {
   padding-left: 50px;
   padding-top: 20px;
