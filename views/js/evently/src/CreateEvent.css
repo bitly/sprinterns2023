@@ -25,8 +25,9 @@ fieldset {
   font-family: 'Inter';
 
   display: flex;
-  max-width: 2000px;
+  /* max-width: 2000px; */
 }
+
 .form-container {
   padding-left: 50px;
   padding-top: 20px;

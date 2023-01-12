@@ -25,7 +25,7 @@ function CreateEvent() {
             {/* Date form */}
             <fieldset className = "input-box-fieldset"> 
               <h4>Date</h4>
-              <input date="date" className = "input-boxes"/> 
+              <input date="date" className = "input-boxes" placeholder='(mm/dd/yyyy)'/> 
             </fieldset> <br></br>
 
             {/* Time form */}
