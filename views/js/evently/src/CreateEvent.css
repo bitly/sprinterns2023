@@ -23,9 +23,7 @@ fieldset {
   background-color: white;
   font-size: 30px;
   font-family: 'Inter';
-
   display: flex;
-  /* max-width: 2000px; */
 }
 
 .form-container {
