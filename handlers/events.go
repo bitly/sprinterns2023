@@ -89,6 +89,7 @@ func GetRSVP(c *gin.Context) {
 		err = RSVProw.Scan(&rsvp.ResponseID, &rsvp.EventID, &rsvp.Name, &rsvp.RSVP, &rsvp.CommentID)
 		if err != nil {
 			c.IndentedJSON(http.StatusInternalServerError, nil) //server error
+			fmt.Println(err)
 			return
 		}
 		// append the event into events array
