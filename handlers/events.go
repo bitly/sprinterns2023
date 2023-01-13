@@ -75,56 +75,6 @@ func CreateRSVP(c *gin.Context) {
     c.JSON(201, rsvp) //success
 }
 
-func UpdateResponse(c *gin.Context) {
-    var rsvp models.UpdateResponse
-    var response []models.GetRSVP
-
-	id := c.Param("RSVPID")
-	rsvpinfo, err := dbmap.Query(
-		"SELECT event_id, response_id, name, rsvp, contact_info FROM rsvp WHERE rsvp_id=?;",
-		id)
-
-	
-	for rsvpinfo.Next() {
-		var userResponse models.GetRSVP
-        // for each row, scan into the event struct
-		err = rsvpinfo.Scan(&rsvp.EventID, &rsvp.ResponderName, &rsvp.RSVP)
-		if err != nil {
-		fmt.Println(err)
-		c.IndentedJSON(http.StatusInternalServerError, nil) //server error
-		return
-	}
-        // append the event into events array
-		response = append(response, userResponse)
-	}
-
-    // Call BindJSON to bind the received JSON to event +add error handling later
-    if err = c.BindJSON(&rsvp); err != nil {
-        c.IndentedJSON(http.StatusBadRequest, nil) //bad data
-        return
-    }
-	
-	if rsvp.ResponderName == ""{
-		rsvp.ResponderName = response[0].ResponderName
-	}
-	if rsvp.ContactInfo == ""{
-		rsvp.ContactInfo = response[0].ContactInfo
-	}
-	if rsvp.RSVP == ""{
-		rsvp.RSVP = response[0].RSVP
-	}
-
-        _, err = dbmap.Query(
-        "UPDATE rsvp SET name = ?, contact_info = ?, rsvp = ? WHERE rsvp_id = ?;",
-    rsvp.ResponderName, rsvp.ContactInfo, rsvp.RSVP)
-
-    if err != nil {
-        c.IndentedJSON(http.StatusInternalServerError, nil) //server error
-        return
-    }
-
-    c.JSON(200, rsvp) //success
-}
 func GetRSVP(c *gin.Context) {
 	var rsvpList []models.GetRSVP
 

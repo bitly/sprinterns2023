@@ -36,8 +36,6 @@ func main() {
 
 	api.POST("/event/:eventID/rsvp", handlers.CreateRSVP)
 
-	api.PATCH("/rsvp/:rsvpID", handlers.UpdateResponse)
-
 	api.GET("/RSVP/:responseID", handlers.GetRSVP)
 
 	api.PATCH("/rsvp/:rsvpID", handlers.UpdateResponse)
