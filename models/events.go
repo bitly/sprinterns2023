@@ -45,5 +45,5 @@ type GetRSVP struct {
 	EventID       int    `json:"event_id"`
 	Name          string `json:"name`
 	RSVP          string `json:"rsvp" `
-	CommentID     int    `json:"comment_id" `
+	CommentID     *int    `json:"comment_id" `
 }
