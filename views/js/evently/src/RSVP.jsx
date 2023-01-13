@@ -33,7 +33,7 @@ function RSVP() {
                 </select>
              
             <label>Comments:</label>
-            <input type="text" className="Bringing anything?" />
+            <input type="text" className="Comments" />
           
         
 
