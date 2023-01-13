@@ -1,22 +1,99 @@
 package handlers
 
 import (
-	"net/http"
-
+	"fmt"
 	"github.com/gin-gonic/gin"
 	"main.go/models"
+	"net/http"
 )
 
-// We'll create a list of jokes
-var events = []models.Event{
-	models.Event{1, 20, "Diana's 35th Birthday Party"},
-	models.Event{2, 55, "Grace's End of Finals Bash"},
-	models.Event{3, 67, "Ange's Holiday Party!"},
-	models.Event{4, 37, "Makayla's NYE Celebration"},
+// creates a new event
+func CreateEvent(c *gin.Context) {
+	var event models.CreateEvent
+
+	// Call BindJSON to bind the received JSON to event +add error handling later
+	if err := c.BindJSON(&event); err != nil {
+		c.IndentedJSON(http.StatusBadRequest, nil) //bad data
+		return
+	}
+
+	_, err := dbmap.Query(
+		"INSERT INTO event (title, date, time, location, host_name, description, contact_info, public_private, num_of_RSVP, max_attendees) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);",
+		event.EventTitle, event.Date, event.Time, event.Location, event.HostName, event.Description, event.ContactInfo, event.PublicPrivate, event.NumRSVP, event.MaxAttendees)
+
+	if err != nil {
+		c.IndentedJSON(http.StatusInternalServerError, nil) //server error
+		return
+	}
+	c.JSON(201, event) //success
 }
 
-// EventHandler retrieves a list of available events
-func EventHandler(c *gin.Context) {
-	c.Header("Content-Type", "application/json")
-	c.JSON(http.StatusOK, events)
+func GetEvent(c *gin.Context) {
+	var events []models.GetEvent
+
+	see_row := c.Param("eventID")
+	eventrow, err := dbmap.Query(
+		"SELECT event_id, title, date, time, location, host_name, description, contact_info, public_private, num_of_RSVP, max_attendees FROM event WHERE event_id=?;",
+		see_row)
+
+	fmt.Printf("%+v", eventrow)
+
+	for eventrow.Next() {
+		var event models.GetEvent
+		// for each row, scan into the event struct
+		err = eventrow.Scan(&event.EventID, &event.EventTitle, &event.Date, &event.Time, &event.Location, &event.HostName, &event.Description, &event.ContactInfo, &event.PublicPrivate, &event.NumRSVP, &event.MaxAttendees)
+		if err != nil {
+			fmt.Println(err)
+			c.IndentedJSON(http.StatusInternalServerError, nil) //server error
+			return
+		}
+		// append the event into events array
+		events = append(events, event)
+	}
+	c.JSON(201, events) //success
+}
+
+func CreateRSVP(c *gin.Context) {
+    var rsvp models.CreateRSVP
+
+    // Call BindJSON to bind the received JSON to event +add error handling later
+    if err := c.BindJSON(&rsvp); err != nil {
+		fmt.Println(err)
+        c.IndentedJSON(http.StatusBadRequest, nil) //bad data
+        return
+    }
+	fmt.Println(rsvp)
+    _, err := dbmap.Query(
+        "INSERT INTO rsvp (event_id, name, rsvp) VALUES (?, ?, ?);",
+        rsvp.EventID, rsvp.ResponderName, rsvp.RSVP)
+
+    if err != nil {
+		fmt.Println(err)
+        c.IndentedJSON(http.StatusInternalServerError, nil) //server error
+        return
+    }
+    c.JSON(201, rsvp) //success
+}
+
+func GetRSVP(c *gin.Context) {
+	var rsvpList []models.GetRSVP
+
+	seeRow := c.Param("responseID")
+	RSVProw, err := dbmap.Query(
+		"SELECT response_id, event_id, name, rsvp, comment_id FROM RSVP WHERE response_id=?;",
+		seeRow)
+
+	for RSVProw.Next() {
+		var rsvp models.GetRSVP
+		// for each row, scan into the event struct
+		err = RSVProw.Scan(&rsvp.ResponseID, &rsvp.EventID, &rsvp.Name, &rsvp.RSVP, &rsvp.CommentID)
+		if err != nil {
+			c.IndentedJSON(http.StatusInternalServerError, nil) //server error
+			fmt.Println(err)
+			return
+		}
+		// append the event into events array
+		rsvpList = append(rsvpList, rsvp)
+	}
+	c.JSON(201, rsvpList) //success
 }

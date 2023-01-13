@@ -1,4 +1,8 @@
-html, body{
+html {
+    background-color: #EE6123;
+}
+
+#MainText {
     /* background of page */
     background-color: #EE6123;
     margin: 0;
@@ -9,37 +13,28 @@ html, body{
     /* page text */
     font-size: 30px;
     font-family: 'Inter';
-}
-
-ul{
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: white;
-}
-
-li{
-    display: inline-block;
     text-align: center;
-    padding: 10px;
 
-    background-color: white;
-    text-decoration: none;
+    padding-top: 125px;
 }
 
-li a:hover{
-    background-color: #207DAE;
+.buttons{
+    background-color: #2E0096;
     color: white;
-}
 
-li a{
-    color: black;
+    font-size: 30px;
     text-decoration: none;
-    text-align: center;
+
+    width: 400px;
+    height: 115px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 80px;
+    padding-right: 80px;
+    border-radius: 8px;
 }
 
-img{
+#HomeLogo{
     background-color: white;
     border-radius: 50%;
     padding: 7px;
@@ -63,19 +58,5 @@ img{
 .Text{
     font-size: 80px;
     color: white;
-}
-
-button{
-    background-color: #2E0096;
-    color: white;
-
-    font-size: 30px;
-
-    width: 400px;
-    height: 115px;
-    border-radius: 8px;
-}
-
-#MainText{
-    padding-top: 125px;
+    padding-top: 30px;
 }
