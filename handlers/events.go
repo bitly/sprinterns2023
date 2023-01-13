@@ -103,7 +103,23 @@ func GetRSVP(c *gin.Context) {
 func DeleteEvent(c *gin.Context) {
 	event_ID := c.Param("eventID")
 
-	_, err := dbmap.Query("Delete FROM event WHERE event_id=?", event_ID)
+	_, err := dbmap.Query("Delete FROM rsvp WHERE event_id=?", event_ID)
+
+	if err != nil {
+		fmt.Println(err)
+		c.IndentedJSON(http.StatusInternalServerError, nil) //server error
+		return
+	}
+
+	_, err = dbmap.Query("Delete FROM comments WHERE event_id=?", event_ID)
+
+	if err != nil {
+		fmt.Println(err)
+		c.IndentedJSON(http.StatusInternalServerError, nil) //server error
+		return
+	}
+
+	_, err = dbmap.Query("Delete FROM event WHERE event_id=?", event_ID)
 
 	if err != nil {
 		fmt.Println(err)
