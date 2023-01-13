@@ -47,3 +47,11 @@ type GetRSVP struct {
 	RSVP          string `json:"rsvp" `
 	CommentID     *int    `json:"comment_id" `
 }
+
+type UpdateResponse struct {
+    EventID       int    `json:"event_id" binding:"required"`
+    ResponderName string `json:"name" binding:"required"`
+    RSVP          string `json:"rsvp" binding:"required"`
+    ContactInfo   string `json:"contact_info" binding:"required"`
+
+}
