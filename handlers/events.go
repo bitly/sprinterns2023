@@ -78,7 +78,7 @@ func CreateRSVP(c *gin.Context) {
 func GetRSVP(c *gin.Context) {
 	var rsvpList []models.GetRSVP
 
-	see_row := c.Param("responseID")
+	seeRow := c.Param("responseID")
 	RSVProw, err := dbmap.Query(
 		"SELECT response_id, event_id, name, rsvp, comment_id FROM RSVP WHERE response_id=?;",
 		seeRow)
@@ -94,5 +94,5 @@ func GetRSVP(c *gin.Context) {
 		// append the event into events array
 		rsvpList = append(rsvpList, rsvp)
 	}
-	c.JSON(201, rsvp1) //success
+	c.JSON(201, rsvpList) //success
 }
