@@ -25,7 +25,7 @@ function CreateEvent() {
             {/* Date form */}
             <fieldset className = "input-box-fieldset"> 
               <h4>Date</h4>
-              <input date="date" className = "input-boxes"/> 
+              <input date="date" className = "input-boxes" placeholder='(mm/dd/yyyy)'/> 
             </fieldset> <br></br>
 
             {/* Time form */}
@@ -76,12 +76,13 @@ function CreateEvent() {
           <div className='upload-container'>
             {/* Upload an image */}
             {/* fieldset style creates a gray box */}
-            <fieldset style={{ backgroundColor: 'rgba(217, 217, 217)', padding: '200px'}}>
+            <fieldset style={{ backgroundColor: 'rgba(217, 217, 217)', padding: '200px'}}> 
               <h2> Choose an image:</h2>
               {/* Takes a file as input; onChange passes value to handleChange */}
               <input type = "file" onChange={handleChange} />
               <img src = {file} />
-            </fieldset><br></br><br></br>
+            </fieldset>
+            <br></br><br></br> 
               <div>
                 {/* Button to publish draft */}
                 <button type="publish" className = "publish-button">Publish</button>
