@@ -1,12 +1,11 @@
 import React from "react";
 import {
-  Routes,
-  Route,
   Link
 } from "react-router-dom";
 import './App.css'
 import './HomePage.css'
-import CreateEvent from './CreateEvent.jsx'; 
+import CreateEvent from './CreateEvent.jsx'
+import CommunityPage from './CommunityPage.jsx'
 import logo from './bitly-logo.png';
 
 const HomePage: React.FC = () => {
@@ -19,7 +18,7 @@ const HomePage: React.FC = () => {
                 <Link to="/create-event" class="buttons">Get Started</Link>
                 <b></b>
                 <h2 class = "Text">Find an event!</h2>
-                <button>RSVP</button>
+                <Link to="/community-page" class="buttons">Browse</Link>
             </div>
         </div>
     );

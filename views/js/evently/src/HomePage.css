@@ -1,14 +1,14 @@
 html {
     background-color: #EE6123;
+    width: auto;
+    height: auto;
+    overflow: auto;
 }
 
 #MainText {
     /* background of page */
     background-color: #EE6123;
     margin: 0;
-    width: auto;
-    height: auto;
-    overflow: auto;
 
     /* page text */
     font-size: 30px;

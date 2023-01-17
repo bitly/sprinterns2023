@@ -6,10 +6,7 @@ import {
 } from "react-router-dom";
 import HomePage from './HomePage.jsx'; 
 import CreateEvent from './CreateEvent.jsx'; 
-// import RSVP from './RSVP.jsx'; 
-//import ViewEvent from './ViewEvent.jsx'; 
-//Add About Us page
-//Add a community page
+import CommunityPage from './CommunityPage.jsx'
 
 function App() {
   return (
@@ -23,12 +20,7 @@ function App() {
           <Link to="/create-event">Create</Link>
         </li>
         <li>
-          <p>RSVP</p>
-          {/* <Link to="/RSVP.jsx">RSVP</Link> */}
-        </li>
-        <li>
-          <p>Community</p>
-          {/* <Link to="/Community.jsx">Community</Link> */}
+          <Link to="/community-page">Community</Link>
         </li>
         <li>
           <p>About Us</p>
@@ -37,6 +29,7 @@ function App() {
       </ul>
     </nav>
     <Routes>
+      <Route path="/community-page" element={<CommunityPage />} />
       <Route path="/create-event" element={<CreateEvent />} />
       <Route path="/" element={<HomePage />} />
     </Routes>
