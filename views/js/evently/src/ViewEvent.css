@@ -13,7 +13,8 @@
 }
 
 .title {
-    padding: 60px 150px 60px 150px;
+    text-align:center;
+    padding: 30px 150px 30px 150px;
     display:flexbox;
     background: aliceblue;
 }
@@ -25,9 +26,19 @@
 }
 
 .image-container {
-    padding-left: 300px;
+    position:absolute;
+    left:60%;
 }
 
 .info-container {
-    padding-left: 300px;
+    position:absolute;
+    left:15%;
+    max-width: 40%;
+    word-wrap:break-word;
+}
+
+.rsvp-button-container{
+    position:absolute;
+    padding-top:800px;
+    left:40%;
 }
