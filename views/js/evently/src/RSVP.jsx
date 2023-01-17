@@ -32,8 +32,8 @@ function RSVP() {
                         maybe </option>
                 </select>
              
-            <label>Write down anything you'd like to bring?</label>
-            <input type="text" className="Bringing anything?" />
+            <label>Comments:</label>
+            <input type="text" className="Comments" />
           
         
 
