@@ -6,6 +6,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"main.go/models"
+	"fmt"
 )
 
 // creates a new event
@@ -14,6 +15,7 @@ func CreateEvent(c *gin.Context) {
 
 	// Call BindJSON to bind the received JSON to event +add error handling later
 	if err := c.BindJSON(&event); err != nil {
+		fmt.Printf("error %+v", err)
 		c.IndentedJSON(http.StatusBadRequest, nil) //bad data
 		return
 	}
@@ -130,7 +132,7 @@ func UpdateEvent(c *gin.Context) {
 	}
 }
 	c.JSON(200, updateEvent) //success
-
+}
 func CreateRSVP(c *gin.Context) {
 	var rsvp models.CreateRSVP
 
