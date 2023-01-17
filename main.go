@@ -39,8 +39,10 @@ func main() {
 	api.PATCH("/event/:eventID", handlers.UpdateEvent)
 
 	api.POST("/event/:eventID/rsvp", handlers.CreateRSVP)
-	
+
 	api.GET("/RSVP/:responseID", handlers.GetRSVP)
+
+	api.DELETE("/event/:eventID", handlers.DeleteEvent)
 
 	// Start and run the server
 	router.Run(":3000")
