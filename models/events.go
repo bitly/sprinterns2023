@@ -46,7 +46,7 @@ type GetRSVP struct {
 
 type UpdateResponse struct {
 	ResponseID    int    `json:"response_id"`
-	Name	string `json:"name"`
+	Name		string `json:"name"`
 	RSVP          string `json:"rsvp"`
 	ContactInfo   *string `json:"contact_info"`
 
