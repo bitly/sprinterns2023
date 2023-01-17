@@ -7,6 +7,7 @@ import {
 import HomePage from './HomePage.jsx'; 
 import CreateEvent from './CreateEvent.jsx'; 
 import CommunityPage from './CommunityPage.jsx'
+import Header from './header.js'
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         </li>
       </ul>
     </nav>
+    <Header/>
     <Routes>
       <Route path="/community-page" element={<CommunityPage />} />
       <Route path="/create-event" element={<CreateEvent />} />
