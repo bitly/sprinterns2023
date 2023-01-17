@@ -128,7 +128,7 @@ func UpdateEvent(c *gin.Context) {
 		c.IndentedJSON(http.StatusInternalServerError, nil) //server error
 		return
 	}
-
+}
 	c.JSON(200, updateEvent) //success
 
 func CreateRSVP(c *gin.Context) {
