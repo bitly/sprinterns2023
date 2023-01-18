@@ -11,3 +11,6 @@ MODIFY comment_id integer DEFAULT NULL;
 
 -- ALTER TABLE rsvp
 -- ADD COLUMN contact_info text;
+
+ALTER TABLE event
+ADD COLUMN image_file text;

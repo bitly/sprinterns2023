@@ -12,6 +12,7 @@ type CreateEvent struct {
 	ContactInfo   string `json:"contact_info" binding:"required"`
 	PublicPrivate string `json:"public_private" binding:"required"`
 	MaxAttendees  int    `json:"max_attendees" binding:"required"`
+	ImageFile     string `json:"image_file" binding:"required"`
 }
 
 type GetEvent struct {
@@ -27,7 +28,6 @@ type GetEvent struct {
 	PublicPrivate string `json:"public_private" `
 	MaxAttendees  int    `json:"max_attendees" `
 }
-
 
 // Event contains information about a single event
 type UpdateEvent struct {
@@ -51,11 +51,9 @@ type CreateRSVP struct {
 }
 
 type GetRSVP struct {
-
 	ResponseID int    `json:"response_id"`
 	EventID    int    `json:"event_id"`
 	Name       string `json:"name`
 	RSVP       string `json:"rsvp" `
 	CommentID  *int   `json:"comment_id" `
 }
-
