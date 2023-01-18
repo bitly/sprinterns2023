@@ -6,7 +6,6 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"main.go/models"
-	"fmt"
 )
 
 // creates a new event
@@ -33,6 +32,10 @@ func CreateEvent(c *gin.Context) {
 
 func GetEvent(c *gin.Context) {
 	var events []models.GetEvent
+	c.Writer.Header().Set("Access-Control-Allow-Origin", "*")
+    c.Writer.Header().Set("Access-Control-Allow-Credentials", "true")
+    c.Writer.Header().Set("Access-Control-Allow-Headers", "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With")
+    c.Writer.Header().Set("Access-Control-Allow-Methods", "POST, OPTIONS, GET, PUT")
 
 	seeRow := c.Param("eventID")
 	eventrow, err := dbmap.Query(
@@ -52,6 +55,18 @@ func GetEvent(c *gin.Context) {
 		events = append(events, event)
 	}
 	c.JSON(201, events) //success
+}
+
+func HandleCors(c *gin.Context) {
+	c.Writer.Header().Set("Access-Control-Allow-Origin", "*")
+    c.Writer.Header().Set("Access-Control-Allow-Credentials", "true")
+    c.Writer.Header().Set("Access-Control-Allow-Headers", "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With")
+    c.Writer.Header().Set("Access-Control-Allow-Methods", "POST, OPTIONS, GET, PUT")
+
+
+    c.AbortWithStatus(204)
+    return
+    
 }
 
 // creates a new event
@@ -130,9 +145,10 @@ func UpdateEvent(c *gin.Context) {
 		c.IndentedJSON(http.StatusInternalServerError, nil) //server error
 		return
 	}
-}
 	c.JSON(200, updateEvent) //success
 }
+	
+
 func CreateRSVP(c *gin.Context) {
 	var rsvp models.CreateRSVP
 
@@ -208,3 +224,4 @@ func DeleteEvent(c *gin.Context) {
 	}
 	c.JSON(204, nil) //success
 }
+
