@@ -6,7 +6,6 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"main.go/models"
-	"fmt"
 )
 
 // creates a new event
@@ -38,7 +37,6 @@ func GetEvent(c *gin.Context) {
 	eventrow, err := dbmap.Query(
 		"SELECT event_id, title, date, time, location, host_name, description, contact_info, public_private, num_of_RSVP, max_attendees FROM event WHERE event_id=?;",
 		seeRow)
-
 
 	for eventrow.Next() {
 		var event models.GetEvent
@@ -130,7 +128,6 @@ func UpdateEvent(c *gin.Context) {
 		c.IndentedJSON(http.StatusInternalServerError, nil) //server error
 		return
 	}
-}
 	c.JSON(200, updateEvent) //success
 }
 func CreateRSVP(c *gin.Context) {
