@@ -8,9 +8,9 @@ function RSVP() {
     return(
     <div>
         <img src={logo} alt="Bitly Logo"></img>
-        <h1 class = "Title">Event.ly</h1>
-        <h2 class = "rsvp">RSVP</h2>
-        <form class = "form-inline">
+        <h1 className = "Title">Event.ly</h1>
+        <h2 className = "rsvp">RSVP</h2>
+        <form className = "form-inline">
             <label>Name:</label>
             <input type="text" className="Name:" 
                 required
