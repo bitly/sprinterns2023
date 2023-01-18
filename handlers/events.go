@@ -14,6 +14,7 @@ func CreateEvent(c *gin.Context) {
 
 	// Call BindJSON to bind the received JSON to event +add error handling later
 	if err := c.BindJSON(&event); err != nil {
+		fmt.Printf("error %+v", err)
 		c.IndentedJSON(http.StatusBadRequest, nil) //bad data
 		return
 	}
@@ -36,7 +37,6 @@ func GetEvent(c *gin.Context) {
 	eventrow, err := dbmap.Query(
 		"SELECT event_id, title, date, time, location, host_name, description, contact_info, public_private, num_of_RSVP, max_attendees FROM event WHERE event_id=?;",
 		seeRow)
-
 
 	for eventrow.Next() {
 		var event models.GetEvent
@@ -128,9 +128,8 @@ func UpdateEvent(c *gin.Context) {
 		c.IndentedJSON(http.StatusInternalServerError, nil) //server error
 		return
 	}
-}
 	c.JSON(200, updateEvent) //success
-
+}
 func CreateRSVP(c *gin.Context) {
 	var rsvp models.CreateRSVP
 
