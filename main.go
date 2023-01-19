@@ -33,6 +33,7 @@ func main() {
 	api.POST("/events", handlers.CreateEvent)
 
 	api.GET("/event/:eventID", handlers.GetEvent)
+	api.OPTIONS("/event/:eventID", handlers.HandleCors)
 
 
 	// This endpoint will update info for an event
