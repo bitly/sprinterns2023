@@ -50,7 +50,11 @@ function ViewEvent() {
                 <div className="image-container">
                     <img src={placeholder} className="image"></img>
                     <br></br>
+<<<<<<< HEAD
                     <button className="rsvp-button" onClick={() => window.location.replace("/rsvp/" + event_id)}>
+=======
+                    <button className="rsvp-button" onClick={window.location.replace("/rsvp/" + event_id)}>
+>>>>>>> 77dff22641136d0e68e8ec17a6838eb8e22608d7
                         <h2>RSVP here</h2>
                     </button>
                 </div>
