@@ -11,7 +11,10 @@ import (
 // creates a new event
 func CreateEvent(c *gin.Context) {
 	var event models.CreateEvent
-
+	c.Writer.Header().Set("Access-Control-Allow-Origin", "*")
+    c.Writer.Header().Set("Access-Control-Allow-Credentials", "true")
+    c.Writer.Header().Set("Access-Control-Allow-Headers", "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With")
+    c.Writer.Header().Set("Access-Control-Allow-Methods", "POST, OPTIONS, GET, PUT")
 	// Call BindJSON to bind the received JSON to event +add error handling later
 	if err := c.BindJSON(&event); err != nil {
 		fmt.Printf("error %+v", err)
@@ -27,7 +30,24 @@ func CreateEvent(c *gin.Context) {
 		c.IndentedJSON(http.StatusInternalServerError, nil) //server error
 		return
 	}
-	c.JSON(201, event) //success
+
+	eventrow, err := dbmap.Query(
+		"SELECT event_id, title, date, time, location, host_name, description, contact_info, public_private, num_of_RSVP, max_attendees FROM event ORDER BY event_id DESC LIMIT 1")
+    	var events []models.GetEvent
+
+	for eventrow.Next() {
+		var event models.GetEvent
+		// for each row, scan into the event struct
+		err = eventrow.Scan(&event.EventID, &event.EventTitle, &event.Date, &event.Time, &event.Location, &event.HostName, &event.Description, &event.ContactInfo, &event.PublicPrivate, &event.NumRSVP, &event.MaxAttendees)
+		if err != nil {
+			c.IndentedJSON(http.StatusInternalServerError, nil) //server error
+			return
+		}
+		// append the event into events array
+		events = append(events, event)
+	}
+	fmt.Println(events[0])
+	c.JSON(201, events[0]) //success
 }
 
 func GetEvent(c *gin.Context) {

@@ -31,6 +31,7 @@ func main() {
 
 	// This endpoint will be able to create events
 	api.POST("/events", handlers.CreateEvent)
+	api.OPTIONS("/events", handlers.HandleCors)
 
 	api.GET("/event/:eventID", handlers.GetEvent)
 	api.OPTIONS("/event/:eventID", handlers.HandleCors)
