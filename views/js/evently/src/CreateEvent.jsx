@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import './CreateEvent.css';
-import Header from './header.js';
 
 function CreateEvent() {
   const [file, setFile] = useState();
@@ -37,7 +36,6 @@ console.log(res)
 console.log("EventTitle", EventTitle)
     return(
       <div className="wrapper"> 
-        <Header/>
         <div className = "container">
           <div className = "form-container">
             <h2> Enter the details of your event:</h2>
