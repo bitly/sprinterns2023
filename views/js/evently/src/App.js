@@ -7,7 +7,7 @@ import {
 import HomePage from './HomePage.jsx'; 
 import CreateEvent from './CreateEvent.jsx'; 
 // import RSVP from './RSVP.jsx'; 
-//import ViewEvent from './ViewEvent.jsx'; 
+import ViewEvent from './ViewEvent.jsx'; 
 //Add About Us page
 //Add a community page
 
@@ -39,6 +39,7 @@ function App() {
     <Routes>
       <Route path="/create-event" element={<CreateEvent />} />
       <Route path="/" element={<HomePage />} />
+      <Route path="/view-event/:event_id" element={<ViewEvent />} />
     </Routes>
   </div>
   );
