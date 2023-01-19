@@ -9,6 +9,7 @@ import CreateEvent from './CreateEvent.jsx';
 import CommunityPage from './CommunityPage.jsx';
 import AboutUs from './AboutUs.jsx';
 import Header from './header.js';
+import ViewEvent from './ViewEvent.jsx'; 
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
       <Route path="/community-page" element={<CommunityPage />} />
       <Route path="/create-event" element={<CreateEvent />} />
       <Route path="/" element={<HomePage />} />
+      <Route path="/view-event/:event_id" element={<ViewEvent />} />
     </Routes>
   </div>
   );
