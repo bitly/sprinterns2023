@@ -42,7 +42,6 @@ func GetEvent(c *gin.Context) {
 		"SELECT event_id, title, date, time, location, host_name, description, contact_info, public_private, num_of_RSVP, max_attendees FROM event WHERE event_id=?;",
 		seeRow)
 
-
 	for eventrow.Next() {
 		var event models.GetEvent
 		// for each row, scan into the event struct
@@ -147,7 +146,6 @@ func UpdateEvent(c *gin.Context) {
 	}
 	c.JSON(200, updateEvent) //success
 }
-	
 
 func CreateRSVP(c *gin.Context) {
 	var rsvp models.CreateRSVP
