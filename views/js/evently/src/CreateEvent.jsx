@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import './CreateEvent.css';
-import Header from './header.js';
 
 function CreateEvent() {
   const [file, setFile] = useState();
@@ -38,7 +37,6 @@ if (res.status === 201) window.location.replace("/view-event/"+resJson.event_id)
 console.log("EventTitle", EventTitle)
     return(
       <div className="wrapper"> 
-        <Header/>
         <div className = "container">
           <div className = "form-container">
             <h2> Enter the details of your event:</h2>
@@ -104,7 +102,7 @@ console.log("EventTitle", EventTitle)
                 <h4>Contact info</h4>
                 <input value={ContactForm} className = "input-boxes" onChange={(e) => setContactForm(e.target.value)}/>
             </fieldset> <br></br><br></br>
-            <button type="submit">Publish</button>
+            <button type="submit" className="save-button">Publish</button>
             </form>
           </div>
 
@@ -118,13 +116,6 @@ console.log("EventTitle", EventTitle)
               <img src = {file} />
             </fieldset>
             <br></br><br></br> 
-              <div>
-                {/* Button to publish draft */}
-
-
-                {/* Button to save draft (if have time) */}
-                <button type="save draft" className = "save-button">Save draft</button>
-              </div>
           </div>
         </div>
       </div>
