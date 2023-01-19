@@ -21,18 +21,19 @@ const handleSubmit = async (e) => {
   console.log("Hello")
   e.preventDefault()
 try {
-let res = await fetch("http://localhost:3000/api/events/", {
+var res = await fetch("http://localhost:3000/api/events", {
   method: "POST",
-  headers: { 'Content-Type': 'application/json' },
-  mode: "no-cors",
+  //headers: { 'Content-Type': 'application/json' },
+  mode: "cors",
   body: JSON.stringify({
-    event_title: EventTitle, date: DateForm, time: TimeForm, location: LocationForm, host_name: HostName, description: DescriptionForm, contact_info: ContactForm, public_private: PublicPrivate, max_attendees: parseInt(AttendeesForm) 
+    event_title: EventTitle, date: DateForm, time: TimeForm, location: LocationForm, host_name: HostName, description: DescriptionForm, contact_info: ContactForm, public_private: "public", max_attendees: parseInt(AttendeesForm) 
   }),
 });
 console.log(res)
-} catch (err){console.log(err)}
-// let resJson = await res.json();
-//       if (res.status === 200) {console.log("resJson", resJson)}
+}
+ catch (err){console.log(err);}
+let resJson = await res.json()
+if (res.status === 201) window.location.replace("/view-event/"+resJson.event_id)
 }
 console.log("EventTitle", EventTitle)
     return(
