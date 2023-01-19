@@ -84,6 +84,7 @@ console.log("EventTitle", EventTitle)
             <fieldset className = "pub-priv-box-fieldset">
                 <h4>Public/Private</h4>
                 <select value={PublicPrivate} onChange={(e) => setPublicPrivate(e.target.value)}>
+                 <option></option>
                  <option name="public" value="public" > public</option>
                  <option name="private" value="private" >private</option>
                 </select>
