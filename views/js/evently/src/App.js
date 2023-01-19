@@ -6,7 +6,7 @@ import {
 } from "react-router-dom";
 import HomePage from './HomePage.jsx'; 
 import CreateEvent from './CreateEvent.jsx'; 
-// import RSVP from './RSVP.jsx'; 
+import RSVP from './RSVP.jsx'; 
 import ViewEvent from './ViewEvent.jsx'; 
 //Add About Us page
 //Add a community page
@@ -37,6 +37,7 @@ function App() {
       </ul>
     </nav>
     <Routes>
+      <Route path="/rsvp/:event_id" element={<RSVP/>} />
       <Route path="/create-event" element={<CreateEvent />} />
       <Route path="/" element={<HomePage />} />
       <Route path="/view-event/:event_id" element={<ViewEvent />} />
