@@ -19,6 +19,10 @@ fieldset {
   padding-bottom: 30px;
 }
 
+.wrapper{
+  background-color: white;
+}
+
 .container {
   background-color: white;
   font-size: 30px;
@@ -27,6 +31,7 @@ fieldset {
 }
 
 .form-container {
+  background-color: white;
   padding-left: 50px;
   padding-top: 20px;
   padding-right:450px;
