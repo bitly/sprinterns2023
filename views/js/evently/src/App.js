@@ -9,11 +9,12 @@ import CreateEvent from './CreateEvent.jsx';
 import CommunityPage from './CommunityPage.jsx';
 import AboutUs from './AboutUs.jsx';
 import Header from './header.js';
+import RSVP from './RSVP.jsx'; 
 import ViewEvent from './ViewEvent.jsx'; 
 
 function App() {
   return (
-    <div>
+    <main>
     <nav>
       <ul>
         <li>
@@ -34,11 +35,12 @@ function App() {
     <Routes>
       <Route path="/about-us" element={<AboutUs />} />
       <Route path="/community-page" element={<CommunityPage />} />
+      <Route path="/rsvp/:event_id" element={<RSVP/>} />
       <Route path="/create-event" element={<CreateEvent />} />
       <Route path="/" element={<HomePage />} />
       <Route path="/view-event/:event_id" element={<ViewEvent />} />
     </Routes>
-  </div>
+  </main>
   );
 }
 

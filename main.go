@@ -36,11 +36,11 @@ func main() {
 	api.GET("/event/:eventID", handlers.GetEvent)
 	api.OPTIONS("/event/:eventID", handlers.HandleCors)
 
-
 	// This endpoint will update info for an event
 	api.PATCH("/event/:eventID", handlers.UpdateEvent)
 
 	api.POST("/event/:eventID/rsvp", handlers.CreateRSVP)
+	api.OPTIONS("/event/:eventID/rsvp", handlers.HandleCors)
 
 	api.GET("/RSVP/:responseID", handlers.GetRSVP)
 

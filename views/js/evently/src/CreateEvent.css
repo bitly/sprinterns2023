@@ -1,22 +1,30 @@
+h4 {
+  margin-bottom: 25px;
+}
+
 fieldset {
   display: inline;
   
 }
 
-.input-box-fieldset {
-  padding-left: 50px;
-  padding-right: 50px;
-  padding-bottom: 20px;
+.wrapper {
+  height: 200%;
+  width: 200%;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  background-color: white;
+}
+
+.input-box-fieldset, .pub-priv-box-fieldset {
+  width: 450px;
+  text-align: center;
+  padding-bottom: 30px;
 }
 
 .input-boxes {
-  width: 300px;
-}
-
-.pub-priv-box-fieldset {
-  padding-left: 151px;
-  padding-right: 151px;
-  padding-bottom: 30px;
+  padding:10px;
+  width: 400px;
 }
 
 .container {
@@ -30,6 +38,7 @@ fieldset {
   padding-left: 50px;
   padding-top: 20px;
   padding-right:450px;
+  background-color: white;
 }
 
 .upload-container {

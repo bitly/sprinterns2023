@@ -30,7 +30,6 @@ function ViewEvent() {
     
     return(
         <div className="wrapper"> 
-            <Header/>
             <div className="container">
                 <div className="info-container">
                     <h1> You are invited! </h1>
@@ -51,7 +50,7 @@ function ViewEvent() {
                 <div className="image-container">
                     <img src={placeholder} className="image"></img>
                     <br></br>
-                    <button className="rsvp-button">
+                    <button className="rsvp-button" onClick={() => window.location.replace("/rsvp/" + event_id)}>
                         <h2>RSVP here</h2>
                     </button>
                 </div>
