@@ -115,13 +115,6 @@ console.log("EventTitle", EventTitle)
               <img src = {file} />
             </fieldset>
             <br></br><br></br> 
-              <div>
-                {/* Button to publish draft */}
-
-
-                {/* Button to save draft (if have time) */}
-                <button type="save draft" className = "save-button">Save draft</button>
-              </div>
           </div>
         </div>
       </div>
