@@ -15,13 +15,11 @@ function RSVP() {
       try {
       var res = await fetch(`http://localhost:3000/api/event/${event_id}/rsvp`, {
         method: "POST",
-        //headers: { 'Content-Type': 'application/json' },
         mode: "cors",
         body: JSON.stringify({
            event_id: parseInt(event_id) , name: ResponderName, rsvp: RSVP
         }),
       });
-      console.log(res)
       }
        catch (err){console.log(err, "Error!");}
       let resJson = await res.json()
@@ -38,18 +36,16 @@ function RSVP() {
 
             <label>Are you coming?</label>
                 <select value={RSVP} onChange={(e) => setRSVP(e.target.value)} className="dropdown">
-                    <option></option>
                     <option>
-                        yes </option>
+                        Yes 
+                    </option>
                     <option>
-                        no </option>
+                        No 
+                    </option>
                     <option>
-                        maybe </option>
+                        Maybe 
+                    </option>
                 </select>
-             
-            {/* <label>Comments:</label>
-            <input type="text" className="Comments" /> */}
-          
             <button type="submit">Submit</button>
 
         </form>
