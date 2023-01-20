@@ -7,8 +7,9 @@ function Header() {
     <div className="Header">
       <div className="logo">
         <img src={logo} alt="Bitly Logo" id="createLogo"></img>
+        <h1>Event.ly</h1>
       </div>
-      <h1>Event.ly</h1>
+      
     </div>
   );
 }

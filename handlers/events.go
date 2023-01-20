@@ -12,9 +12,9 @@ import (
 func CreateEvent(c *gin.Context) {
 	var event models.CreateEvent
 	c.Writer.Header().Set("Access-Control-Allow-Origin", "*")
-    c.Writer.Header().Set("Access-Control-Allow-Credentials", "true")
-    c.Writer.Header().Set("Access-Control-Allow-Headers", "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With")
-    c.Writer.Header().Set("Access-Control-Allow-Methods", "POST, OPTIONS, GET, PUT")
+	c.Writer.Header().Set("Access-Control-Allow-Credentials", "true")
+	c.Writer.Header().Set("Access-Control-Allow-Headers", "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With")
+	c.Writer.Header().Set("Access-Control-Allow-Methods", "POST, OPTIONS, GET, PUT")
 	// Call BindJSON to bind the received JSON to event +add error handling later
 	if err := c.BindJSON(&event); err != nil {
 		fmt.Printf("error %+v", err)
@@ -33,7 +33,7 @@ func CreateEvent(c *gin.Context) {
 
 	eventrow, err := dbmap.Query(
 		"SELECT event_id, title, date, time, location, host_name, description, contact_info, public_private, num_of_RSVP, max_attendees FROM event ORDER BY event_id DESC LIMIT 1")
-    	var events []models.GetEvent
+	var events []models.GetEvent
 
 	for eventrow.Next() {
 		var event models.GetEvent
@@ -53,9 +53,9 @@ func CreateEvent(c *gin.Context) {
 func GetEvent(c *gin.Context) {
 	var events []models.GetEvent
 	c.Writer.Header().Set("Access-Control-Allow-Origin", "*")
-    c.Writer.Header().Set("Access-Control-Allow-Credentials", "true")
-    c.Writer.Header().Set("Access-Control-Allow-Headers", "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With")
-    c.Writer.Header().Set("Access-Control-Allow-Methods", "POST, OPTIONS, GET, PUT")
+	c.Writer.Header().Set("Access-Control-Allow-Credentials", "true")
+	c.Writer.Header().Set("Access-Control-Allow-Headers", "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With")
+	c.Writer.Header().Set("Access-Control-Allow-Methods", "POST, OPTIONS, GET, PUT")
 
 	seeRow := c.Param("eventID")
 	eventrow, err := dbmap.Query(
@@ -78,14 +78,13 @@ func GetEvent(c *gin.Context) {
 
 func HandleCors(c *gin.Context) {
 	c.Writer.Header().Set("Access-Control-Allow-Origin", "*")
-    c.Writer.Header().Set("Access-Control-Allow-Credentials", "true")
-    c.Writer.Header().Set("Access-Control-Allow-Headers", "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With")
-    c.Writer.Header().Set("Access-Control-Allow-Methods", "POST, OPTIONS, GET, PUT")
+	c.Writer.Header().Set("Access-Control-Allow-Credentials", "true")
+	c.Writer.Header().Set("Access-Control-Allow-Headers", "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With")
+	c.Writer.Header().Set("Access-Control-Allow-Methods", "POST, OPTIONS, GET, PUT")
 
+	c.AbortWithStatus(204)
+	return
 
-    c.AbortWithStatus(204)
-    return
-    
 }
 
 // creates a new event
@@ -169,7 +168,10 @@ func UpdateEvent(c *gin.Context) {
 
 func CreateRSVP(c *gin.Context) {
 	var rsvp models.CreateRSVP
-
+	c.Writer.Header().Set("Access-Control-Allow-Origin", "*")
+	c.Writer.Header().Set("Access-Control-Allow-Credentials", "true")
+	c.Writer.Header().Set("Access-Control-Allow-Headers", "Content-Type, Content-Length, Accept-Encoding, X-CSRF-Token, Authorization, accept, origin, Cache-Control, X-Requested-With")
+	c.Writer.Header().Set("Access-Control-Allow-Methods", "POST, OPTIONS, GET, PUT")
 	// Call BindJSON to bind the received JSON to event +add error handling later
 	if err := c.BindJSON(&rsvp); err != nil {
 		fmt.Println(err)
@@ -242,4 +244,3 @@ func DeleteEvent(c *gin.Context) {
 	}
 	c.JSON(204, nil) //success
 }
-

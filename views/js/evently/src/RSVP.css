@@ -5,23 +5,13 @@ html, body{
   width: auto;
   height: auto;
   overflow: auto;
-  padding: 50px;
+  padding: none;
 
   /* page text */
   font-size: 15px;
   font-family: 'Inter';
 }
-img{
-  background-color: white;
-  border-radius: 50%;
-  padding: 7px;
-  height: 50px;
-  width: 50px;
-  top: 10px;
-  left: 10px;
-  position: absolute;
-  overflow: hidden;
-}
+
 .Title{
     position: absolute;
     top: -10px;
